@@ -1,0 +1,15 @@
+.container-pad{
+	padding-top:110px;
+	padding-right:50px;
+	padding-left:50px;
+	padding-bottom:30px;
+	font-size: smaller;
+}
+
+.shaded{
+	background-color: rgb(238, 241, 231);
+	padding-top: 5px;
+	padding-right: 15px;
+	padding-left: 15px;
+	padding-bottom: 5px;
+}

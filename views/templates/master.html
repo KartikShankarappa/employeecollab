@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Employee Collab</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Loading Bootstrap -->
+    <link href="{{url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet">
+    <link href="{{url_for('static',filename='css/flat-ui.css')}}" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{{url_for('static',filename='img/favicon.ico')}}">
+
+  </head>
+  <body>
+
+
+    <!-- Static navbar -->
+      <nav class="navbar navbar-inverse navbar-fixed-top navbar-lg navbar-embossed" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-9">
+              <span class="sr-only">Emp Collab</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Employee Network</a>
+          </div>
+          <div class="navbar-collapse collapse" id="navbar-collapse-9">
+            {% block navright %}
+            <form class="navbar-form navbar-right" role="form">
+              <div class="form-group">
+                <input type="text" placeholder="Email" class="form-control">
+              </div>
+              <div class="form-group">
+                <input type="password" placeholder="Password" class="form-control">
+              </div>
+              <button type="submit" class="btn btn-success">Sign in</button>
+            </form>
+            {% endblock %}
+          </div><!--/.navbar-collapse -->
+        </div>
+      </nav>
+
+
+    <div class="container container-pad">
+    {% block container %}
+
+      <div class="row">
+        
+        <div class="col-md-7" style="padding-top:20px;">
+          
+          <div class="row">
+            <div class="col-md-3">
+              <img src="{{ url_for('static',filename='img/icons/svg/pencils.svg')}}" alt="Collaborate">
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li>Build your personal profile.</li>
+                <li>Collaborate with employees.</li>
+              </ul>
+            </div>
+          </div>
+          
+          <hr>
+
+          <div class="row">
+            <div class="col-md-3">
+              <img src="{{ url_for('static',filename='img/icons/svg/mail.svg')}}" alt="Collaborate">
+            </div>
+            <div class="col-md-6">
+              <br>
+              <ul>
+                <li>Send private messages to people in your network.</li>
+              </ul>
+            </div>
+          </div>
+          
+          <hr>
+
+          <div class="row">
+            <div class="col-md-3">
+              <img src="{{ url_for('static',filename='img/icons/svg/book.svg')}}" alt="Collaborate">
+            </div>
+            <div class="col-md-6">
+              <ul>
+                <li>Share content in your network.</li>
+                <li>Customized sharing.</li>
+                <li>Upload files.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="col-md-4">
+          Register
+          <hr>
+            <div class="form-group">
+              <label class="control-label" for="txtfname">First name</label>
+              <input type="text" class="form-control" id="txtfname">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="txtlname">Last name</label>
+              <input type="text" class="form-control" id="txtlname">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="txtemail">Email</label>
+              <input type="text" class="form-control" id="txtemail">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="txtpassword">Password</label>
+              <input type="text" class="form-control" id="txtpassword">
+            </div>
+            <div class="form-group">
+              <label class="control-label" for="txtrepassword">Re-enter Password</label>
+              <input type="text" class="form-control" id="txtrepassword">
+            </div>
+
+          </div>
+
+      </div>
+
+    {% endblock %}
+    </div> <!-- /container -->
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{ url_for('static',filename='js/lib/jquery.min.js')}}"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{ url_for('static',filename='js/lib/flat-ui.min.js')}}"></script>
+
+    <script src="{{ url_for('static',filename='js/lib/application.js')}}"></script>
+    <script src="{{ url_for('static',filename='js/footer.js')}}"></script>
+
+  </body>
+</html>

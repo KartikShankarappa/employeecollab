@@ -1,0 +1,49 @@
+{% extends 'master.html' %}
+
+{% block navright %}
+
+{% endblock %}
+
+{% block container %}
+	<div class="col-md-4">
+		
+	</div>
+	<div class="col-md-8">
+		<div class="row shaded">
+			<div class="row" style="padding-bottom:10px;">
+				<div class="col-md-4">
+					<label class="control-label fui-new" for="txtpost">&nbsp;write content</label>
+				</div>
+				<div class="col-md-3">
+					<span class="fui-clip">&nbsp;<label href="#" id="linkupload">upload</label>	</span>
+					<input type="file" id="fileupload" style="display:none;"></input>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+	              <textarea  rows="2" class="form-control" placeholder="Write something here..." id="txtpost"> </textarea>
+	            </div>
+			</div>
+			<br>
+			<div class="row" style="padding-bottom:10px;">
+				<div class="col-md-4">
+			            <select data-toggle="select" class="col-md-2 form-control select select-default select2-offscreen" tabindex="-1" title="">
+			                <option value="1">Friends</option>
+			                <option value="2">Friends of Friends</option>
+			                <option value="3">Everyone</option>
+			                <option value="4">My Settings</option>
+			            </select>
+				</div>
+				<div class="col-md-5 pull-right">
+					<button class="btn btn-primary btn-sm pull-right">&nbsp;Post</button>
+				</div>
+			</div>
+		</div>
+		<br>
+		<div class="row shaded">
+			
+		</div>
+	</div>
+
+	
+{% endblock %}
