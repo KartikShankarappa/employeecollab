@@ -5,7 +5,6 @@ import os,md5
 from werkzeug import secure_filename
 from datetime import timedelta, datetime
 
-signupStatus={'activate':'Please check your email and activate your account!','success':'Your account is activated!','invalid':'Invalid key','inactive':'Your account is not activated! Please activate using the link sent to your email!','incorrect':'Invalid credentials!','exist':'You are already registered. Please check your email now to activate!','false':'Email already been registered!','0':'Invalid Key/Email. Please use the correct url sent to your email.','1':'Password Updated!'}
 
 def login_required(func):
     """
@@ -21,4 +20,8 @@ def login_required(func):
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    return render_template('master.html')
+
+@app.route('/wall')
+def wall():
+    return render_template('index.html')
