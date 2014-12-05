@@ -1,0 +1,45 @@
+{% for post in posts %}
+<div class="row shaodw">
+	<div class="row">
+		<div class="col-md-2">
+			<a href="#" class="text-info">{{ post["first_name"]|title }} {{ post["last_name"] }}</a>
+		</div>
+		<div class="col-md-3">
+			<small><em>{{ post["posted_when"] }}</em></small>
+		</div>
+	</div>
+	<hr>
+	<div class="row" style="padding:20px;">
+		<b>{{ post["title"] }}</b><br>
+		<div style="padding-left:20px;">
+			<blockquote>
+				{% if post["upload"] != "None" %}
+					<img src="static/uploads/{{post['upload']}}" data-holder-rendered="true" >
+					<br>
+				{% endif %}
+				{{ post["content"] }}
+
+			</blockquote>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-2">
+			<small><a href="#" class="text-info">Like</a></small>
+		</div>
+		<div class="col-md-2" 
+			<small><a href="#" class="text-info acomment">Comment</a></small>
+		</div>
+	</div>
+	<br>
+	<div class="row divcomment" style="display:none;">
+		<form class="formcontent" method="post">
+			<div class="col-md-9">
+				<textarea rows="2" name="txtcomment" type="text" class="form-control" required></textarea>
+			</div>
+			<div class="col-md-2" style="margin-top: auto;margin-bottom: auto;">
+				<button class="btn btn-primary btn-sm pull-right">Comment</button>
+			</div>
+		</form>
+	</div>
+</div>
+{% endfor %}

@@ -9,7 +9,7 @@ app.secret_key = os.urandom(24)
 app.wsgi_app = ProxyFix(app.wsgi_app)
 app.debug=True
 
-app.config['UPLOAD_FOLDER'] = '/home/maak/employeecollab/uploads'
+app.config['UPLOAD_FOLDER'] = '/home/maak/workspace/employeecollab/views/static/uploads'
 # These are the extension that we are accepting to be uploaded
 app.config['ALLOWED_EXTENSIONS'] = set(['txt', 'pdf', 'png', 'jpg','doc','docx', 'jpeg', 'gif'])
 

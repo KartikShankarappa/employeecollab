@@ -1,5 +1,7 @@
+
 {% extends 'master.html' %} 
-{% block navbarsize %}{% endblock %}
+{% block navbarsize %}
+{% endblock %} 
 {% block navright %}
 
 <form class="navbar-form navbar-right">
@@ -11,83 +13,94 @@
         <a href="/logout">logout</a>
     </div>
 </form>
-{% endblock %} 
+
+{% endblock %}
+
 {% block container %}
 
 <div class="col-md-8">
-    <div class="row shaded">
-        <div class="row" style="padding-bottom:10px;">
-            <div class="col-md-4">
-                <label class="control-label fui-new" for=
-                "txtpost">&nbsp;write content</label>
+    <div class="row shaodw">
+        <form id="formpost" method="post" enctype="multipart/form-data">
+            <div class="row" style="padding-bottom:10px;">
+                <div class="col-md-4">
+                    <label class="control-label fui-new" for=
+                    "txttitle">&nbsp;write content</label>
+                </div>
+
+                <div class="col-md-3">
+                    <span class="fui-clip">&nbsp;<label id=
+                    "linkupload">upload</label></span> <input name="fileupload" id="fileupload"
+                    style="display:none;" type="file">
+                </div>
             </div>
 
-            <div class="col-md-3">
-                <span class="fui-clip">&nbsp;<label id=
-                "linkupload">upload</label></span> <input id="fileupload"
-                style="display:none;" type="file">
+            <div class="row">
+                <div class="col-md-12">
+                    <textarea class="form-control" name="txttitle" id="txttitle" placeholder=
+                    "Write something here..." rows="2" required></textarea><br>
+                    <textarea class="form-control" name="txtcontent" id="txtcontent" placeholder=
+                    "Write optional description here..." rows="3"></textarea>
+                </div>
+            </div><br>
+
+            <div class="row" style="padding-bottom:10px;">
+                <div class="col-md-4">
+                    <select class="col-md-2 form-control select select-default select2-offscreen"
+                    data-toggle="select" name="selectvisibility" tabindex="-1" title="">
+                        <option value="1">
+                            Friends
+                        </option>
+
+                        <option value="2">
+                            Friends of Friends
+                        </option>
+
+                        <option value="3">
+                            Everyone
+                        </option>
+
+                        <option value="4">
+                            My Settings
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-md-5 pull-right">
+                    <button type="submit" class="btn btn-primary btn-sm pull-right">&nbsp;Post</button>
+                </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <textarea class="form-control" id="txtpost" placeholder=
-                "Write something here..." rows="2">
-</textarea>
-            </div>
-        </div><br>
-
-        <div class="row" style="padding-bottom:10px;">
-            <div class="col-md-4">
-                <select class=
-                "col-md-2 form-control select select-default select2-offscreen"
-                data-toggle="select" tabindex="-1" title="">
-                    <option value="1">
-                        Friends
-                    </option>
-
-                    <option value="2">
-                        Friends of Friends
-                    </option>
-
-                    <option value="3">
-                        Everyone
-                    </option>
-
-                    <option value="4">
-                        My Settings
-                    </option>
-                </select>
-            </div>
-
-            <div class="col-md-5 pull-right">
-                <button class=
-                "btn btn-primary btn-sm pull-right">&nbsp;Post</button>
-            </div>
-        </div>
+        </form>
     </div><br>
 
-    <div class="row shaded"></div>
+    <div id="pre_post"></div>
+
+    {% include "posts.html" %}
+
+    <div id="post_post"></div>
 </div>
 
-<div class="col-md-4">
-	<div class="pull-right">
-		<img alt="140x140" class="img-circle" src="https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/06c/2a5/001bb58.jpg" data-holder-rendered="true" style="width: 140px; height: 140px;">
-		<br>
-		<a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;	 change photo </a>
-		<hr>
-	    <div class="panel panel-default">
-	        <!-- PANEL HEADING -->
+<div class="col-md-4" style="padding-left:100px">
+    <div class="pull-right" style="position:fixed;">
+        <img alt="140x140" class="img-circle" data-holder-rendered="true"
+        src=
+        "https://media.licdn.com/mpr/mpr/shrink_200_200/p/1/005/06c/2a5/001bb58.jpg"
+        style="width: 140px; height: 140px;"><br>
+        <a href="#">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; change
+        photo</a>
+        <hr>
 
-	        <div class="panel-heading">
-	            <h3 class="panel-title">
-	            Messages
-	            </h3>
-	        </div><!-- PANEL BODY -->
+        <div class="panel panel-default">
+            <!-- PANEL HEADING -->
 
-	        <div class="panel-body">
-	        </div><!-- END PANEL BODY -->
-	    </div>
-	</div>
+            <div class="panel-heading">
+                <h3 class="panel-title">Messages</h3>
+            </div><!-- PANEL BODY -->
+
+            <div class="panel-body"></div><!-- END PANEL BODY -->
+        </div>
+    </div>
 </div>
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static',filename='js/app.js')}}"></script>
 {% endblock %}

@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
   PRIMARY KEY (`comment_id`),
   KEY `post_id` (`post_id`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -81,7 +81,7 @@ CREATE TABLE IF NOT EXISTS `friends` (
   PRIMARY KEY (`user_id`,`friend_id`),
   KEY `user_id` (`user_id`),
   KEY `friend_id` (`friend_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `friend_requests` (
   PRIMARY KEY (`request_id`),
   KEY `from_id` (`from_id`),
   KEY `to_id` (`to_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -110,7 +110,7 @@ CREATE TABLE IF NOT EXISTS `likes_comment` (
   `liked_by_id` int(11) NOT NULL,
   PRIMARY KEY (`comment_id`,`liked_by_id`),
   KEY `liked_by_id` (`liked_by_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `likes_post` (
   `liked_by_id` int(11) NOT NULL,
   PRIMARY KEY (`post_id`,`liked_by_id`),
   KEY `likes_post_ibfk_2` (`liked_by_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `location_post` (
   `post_id` int(11) NOT NULL,
   `location_area` varchar(256) NOT NULL,
   PRIMARY KEY (`post_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -149,7 +149,7 @@ CREATE TABLE IF NOT EXISTS `profile` (
   `university` varchar(256) NOT NULL,
   `job` varchar(256) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -165,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `relationship` (
   PRIMARY KEY (`relationship_id`),
   KEY `user_id` (`user_id`),
   KEY `user_id_map` (`user_id_map`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 -- --------------------------------------------------------
 
@@ -187,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `friends_visibility_id` int(11) NOT NULL,
   `post_visibility_id` int(11) NOT NULL,
   PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 -- --------------------------------------------------------
 
@@ -201,12 +201,12 @@ CREATE TABLE IF NOT EXISTS `user_post` (
   `posted_when` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `content` varchar(1000) NOT NULL,
   `title` varchar(256) NOT NULL,
-  `upload` blob NOT NULL,
+  `upload` varchar(100) NOT NULL,
   `visibility_id` int(11) NOT NULL DEFAULT '2',
   PRIMARY KEY (`post_id`),
   KEY `user_id` (`user_id`),
   FULLTEXT KEY `content` (`content`,`title`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Constraints for dumped tables
